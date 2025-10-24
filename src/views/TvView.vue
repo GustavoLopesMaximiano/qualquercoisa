@@ -82,13 +82,18 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+h1 {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
 .genre-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
   list-style: none;
-  margin-bottom: 2rem;
+  margin: 2rem;
 }
 
 .genre-item {
@@ -105,9 +110,11 @@ onMounted(async () => {
 }
 
 .tv-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .tv-card {
@@ -115,18 +122,25 @@ onMounted(async () => {
   height: 30rem;
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 0 0.5rem #000;
+  transition: ease-in-out 0.3s;
+}
+.tv-card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 3rem #cccccc;
 }
 
 .tv-card img {
   width: 100%;
   height: 20rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem #000;
+  
 }
 
 .tv-details {
   padding: 0 0.5rem;
+  background-color: #292929;
+  width: 100%;
+  height: 100%;
 }
 
 .tv-title {

@@ -53,6 +53,7 @@
   >
     {{ genre.name }}
   </li>
+  </ul>
   <div class="movie-list">
   <div v-for="movie in movies" :key="movie.id" class="movie-card">
     <img
@@ -76,17 +77,22 @@
     </div>
   </div>
 </div>
-  </ul>
+  
   <loading v-model:active="isLoading" is-full-page />
 </template>
 <style scoped>
+h1 {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
 .genre-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
   list-style: none;
-  margin-bottom: 2rem;
+  margin: 2rem;
 }
 
 .genre-item {
@@ -102,9 +108,11 @@
   box-shadow: 0 0 0.5rem #387250;
 }
 .movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .movie-card {
@@ -112,9 +120,12 @@
   height: 30rem;
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 0 0.5rem #000;
+  transition: ease-in-out 0.3s;
 }
-
+.movie-card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 3rem #cccccc;
+}
 .movie-card img {
   width: 100%;
   height: 20rem;
@@ -124,6 +135,7 @@
 
 .movie-details {
   padding: 0 0.5rem;
+  background-color: #292929;
 }
 
 .movie-title {
